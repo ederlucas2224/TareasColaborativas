@@ -1,0 +1,6 @@
+@TareasColaborativas_HostAddress = http://localhost:5216
+
+GET {{TareasColaborativas_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
