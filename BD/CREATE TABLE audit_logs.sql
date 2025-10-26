@@ -1,0 +1,13 @@
+CREATE TABLE audit_logs
+(
+    Id BIGINT IDENTITY(1,1) PRIMARY KEY,
+    Tarea_id UNIQUEIDENTIFIER NOT NULL,
+    Estatus_Previo NVARCHAR(50) NULL,
+    NuevoEstatus NVARCHAR(50) NULL,
+    CambiadoPor NVARCHAR(200) NULL,
+    Timestamp DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
+
+    CONSTRAINT FK_Audit_Task FOREIGN KEY (Tarea_id) REFERENCES tasks(Id)
+);
+
+CREATE INDEX IX_Audit_TaskId ON audit_logs(Tarea_id);
